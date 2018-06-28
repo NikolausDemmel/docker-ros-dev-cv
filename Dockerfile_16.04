@@ -1,0 +1,37 @@
+FROM ros:kinetic-perception
+
+# non-persistent environment variables
+ARG DEBIAN_FRONTEND=noninteractive
+
+# Basic packages
+RUN apt-get update && apt-get install -y \
+    software-properties-common \
+#    build-essential \
+    clang \
+    clang-5.0 \
+    libc++-dev \
+#    cmake \
+#    pkg-config \
+    wget \
+#    curl \
+#    git \
+    ccache \
+    aptitude
+
+# Python
+RUN apt-get update && apt-get install -y \
+    python \
+    python3 \
+    libpython-all-dev \
+    libpython3-all-dev
+    
+# Install some tools
+RUN apt-get update && apt-get install -y \
+    emacs \
+    vim \
+    cmake-curses-gui
+
+# Install additional libs
+RUN apt-get update && apt-get install -y \
+    libgoogle-glog-dev
+
